@@ -1,15 +1,11 @@
-connection: "the_look"
+connection: "snowflake"
 
 view: orders {
-  sql_table_name: demo_db.orders ;;
+  sql_table_name: looker_test.orders ;;
+  dimension: status {}
   dimension: test_html {
-    sql:  ${TABLE}.status ;;
-    html:
-    {% if value == 'cancelled' %}
-    <p style="color: white; background-color: blue; font-size:100%">{{ rendered_value }}</p>
-    {% else %}
-    <p style="color: white; background-color: red; font-size:100%">{{ rendered_value }}</p>
-    {% endif %};;
+    sql:  ${status} ;;
+    html: original;;
   }
   measure: count {
     type: count
