@@ -12,4 +12,4 @@ view: orders {
   }
 }
 
-explore: orders {}
+explore: orders {hidden: yes}
